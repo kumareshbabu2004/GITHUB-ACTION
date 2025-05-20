@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Priny hello world
+    - name: Print hello world
       run: echo"Hello-world"
