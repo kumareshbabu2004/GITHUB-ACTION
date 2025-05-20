@@ -1,11 +1,10 @@
-name: sendmail
+name: Send Email
 
 on: push
 
 jobs:
   mail:
     runs-on: ubuntu-latest
-
     steps:
     - name: Print Hello world
       run: echo "Hello world"
@@ -18,9 +17,7 @@ jobs:
         server_port: 465
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: "${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}"
-        body: "${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}"
-        to: rgkumar1233@gmail.com, abcd@gmail.com
-        from: Kumaresh <${{ secrets.EMAIL_USERNAME }}>
-
-
+        subject: "GitHub Action Notification"
+        body: "Job ${{ github.job }} in workflow ${{ github.workflow }} has ${{ job.status }}"
+        to: rgkumar1233@example.com
+        from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
